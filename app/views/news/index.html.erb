@@ -1,0 +1,52 @@
+<div class="wrap">
+  <!-- header -->
+  <%= render "header" %>
+  <!-- main-content -->
+  <div class="main-content clearfix">
+    <div class="news-content">
+      <!-- 两种状态：没图的news-list和有图的news-list-img -->
+      <% @news.each do |news| %>
+      <% if news.cover.present? %>
+      <div class="news-list-img clearfix">
+        <div class="news-left">
+          <h2><%= link_to news.title, news %></h2>
+          <p><%= news.summary.present? ? news.summary : strip_tags(news.content).html_safe.remove("&nbsp;").remove("&#13;").truncate(350) %><%= link_to '［详情］', news %></p>
+          <p class="news-info">
+            <span>发布日期：<%= news.published_at.strftime('%Y.%m.%d') rescue nil %></span>
+            <% if news.source.present? %><span>来源：<%= news.source %></span><% end %>
+            <a href="javascript:void(0);" onclick="add_star(<%= news.id %>)" id="add_star_<%= news.id %>"><i class="fa fa-heart-o"></i><span id="span"><%= news.star || 0 %></span></a>
+          </p>
+        </div>
+        <div class="news-right">
+          <%= link_to image_tag(news.cover_url(:on_use)), news %>
+        </div>
+      </div>
+      <% else %>
+      <div class="news-list">
+        <h2><%= link_to news.title, news %></h2>
+        <p><%= news.summary.present? ? news.summary : strip_tags(news.content).html_safe.remove("&nbsp;").remove("&#13;").truncate(500) %><%= link_to '［详情］', news %></p>
+        <p class="news-info">
+          <span>发布日期：<%= news.published_at.strftime('%Y.%m.%d') rescue nil %></span>
+          <% if news.source.present? %><span>来源：<%= news.source %></span><% end %>
+          <a href="javascript:void(0);" onclick="add_star(<%= news.id %>)" id="add_star_<%= news.id %>"><i class="fa fa-heart-o"></i><span id="span"><%= news.star || 0 %></span></a>
+        </p>
+      </div>
+      <% end %>
+      <% end %>
+      <%= will_paginate @photos, previous_label: '上一页', next_label: '下一页' %>
+    </div>
+  </div>
+</div>
+<script type="text/javascript">
+  function add_star(article_id){
+    var score = $("#add_star_" + article_id + " #span").text();
+    $.ajax({
+      type: 'get',
+      url: '/ajax/add_star',
+      data: { article_id: article_id },
+      success: function(){
+        $("#add_star_" + article_id).html('<i class="fa fa-heart"></i><span>' + (parseInt(score) + 1) + '</span>')
+      }
+    });
+  }
+</script>

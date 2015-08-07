@@ -1,0 +1,25 @@
+<div class="wrap">
+	<!-- header -->
+	<%= render "header" %>
+	<%= stylesheet_link_tag 'lightbox', media: 'all' %>
+	<!-- main-content -->
+	<div class="main-content clearfix">
+		<div class="image-set">
+			<!-- href里是大图的路径，尺寸要求：任何比例尺寸； src是小图路径，尺寸要求：310*195px  -->
+			<% @photos.each do |photo| %>
+			<a class="example-image-link" href="<%= image_url photo.photo_url(:big) %>" data-lightbox="example-set" data-title="<%= "#{photo.title}<em>#{photo.etitle}</em>" %>">
+				<%= image_tag photo.cover_url(:on_use) || photo.photo_url(:on_use) %>
+			</a>
+			<% end %>
+		</div>
+		<%= will_paginate @photos, previous_label: '上一页', next_label: '下一页' %>
+	</div>
+</div>
+<% content_for :js do %>
+<%= javascript_include_tag 'lightbox' %>
+<script type="text/javascript">
+	$(function(){
+		$(".image-set > a:nth-child(3n)").css({"margin-right":0});
+	})
+</script>
+<% end %>

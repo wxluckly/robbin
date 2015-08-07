@@ -1,0 +1,35 @@
+<div class="wrap">
+  <!-- header -->
+  <%= render "header" %>
+
+  <!-- main-content -->
+  <div class="main-content clearfix">
+    <div class="left-column">
+      <% @videos.each_with_index do |video, index| %>
+      <% next if index % 3 != 0 %>
+      <p><%= link_to image_tag(video.cover_url(:on_use)), video %></p>
+      <h3><%= link_to video.title, video %></h3>
+      <h4><%= link_to video.etitle, video %></h4>
+      <% end %>
+    </div>
+    <div class="center-column">
+      <% @videos.each_with_index do |video, index| %>
+      <% next if index % 3 != 1 %>
+      <p><%= link_to image_tag(video.cover_url(:on_use)), video %></p>
+      <h3><%= link_to video.title, video %></h3>
+      <h4><%= link_to video.etitle, video %></h4>
+      <% end %>
+    </div>
+    <div class="right-column">
+      <% @videos.each_with_index do |video, index| %>
+      <% next if index % 3 != 2 %>
+      <p><%= link_to image_tag(video.cover_url(:on_use)), video %></p>
+      <h3><%= link_to video.title || "&nbsp", video %></h3>
+      <h4><%= link_to video.etitle, video %></h4>
+      <% end %>
+    </div>
+    <%= will_paginate @videos, previous_label: '上一页', next_label: '下一页' %>
+  </div>
+</div>
+<% content_for :js do %>
+<% end %>

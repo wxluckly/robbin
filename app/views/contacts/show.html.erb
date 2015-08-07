@@ -1,0 +1,83 @@
+<div class="wrap">
+  <!-- header -->
+  <%= render "header" %>
+  
+  <!-- main-content -->
+  <div class="main-content clearfix contact-col">
+    <div class="map-model" id="container"></div>
+    <div class="left-column">
+      <div class="contact-content contact-content-fa">
+        <h2>联系我们：</h2>
+        <div class="line"></div>
+        <p class="new-dream-weixin">
+            <%= image_tag "code.png" %>
+            <i class="fa fa-weixin"></i>(wechat)：<a href="http://mp.weixin.qq.com/s?__biz=MzA3MDExMjAzOA==&mid=200627476&idx=1&sn=758fe50c82a39d48e6af0ec74a4d90f3&scene=1&key=0dd6657c2b60679ef5f402f307bf19f1d1dc9ab5da9a515323940dbd14d2f322738e3d476c7b13f26ea43f973e2cf2b4&ascene=0&uin=MTMxMjkyMTAyMA%3D%3D&devicetype=iMac+MacBookPro10%2C1+OSX+OSX+10.10.1+build(14B25)&version=11020012&pass_ticket=bCZ7LsPZerBBitGpVljlLr7sjPk2%2FDjH2RGwwz01PaKJhraRCMhmN3W2AWk1VOk2">xinmengxiang</a>
+        </p>
+        <p><i class="fa fa-weibo"></i>(weibo)：<a href="http://weibo.com/xinmengxiangdahui" target="_blank">新梦想大会</a></p>
+        <p><i class="fa fa-envelope"></i>(E-mail)：<a href="mailto:truedreamcc@163.com" class="social-media__icon twitter">truedreamcc@163.com</a></p>
+      </div>
+    </div>
+    <div class="center-column">
+        <div class="contact-content">
+            <h2>其它联系方式：</h2>
+            <div class="line"></div>
+            <p class="dress-txt">地址(Add)：北京市东城区天安门东劳动人民文化宫东南角<em>Imperial Ancestral Temple, East of Tian An Men, Dong Cheng District, Beijing</em></p>
+            <p>电话(Tel)：86-10-65246868</p>
+        </div>
+    </div>
+  </div>
+</div>
+<% content_for :js do %>
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=1.5&ak=jliyYPCEf00MN8p3jwKqBpmg"></script>  
+<script type="text/javascript">  
+    var map = new BMap.Map("container");  
+    map.centerAndZoom(new BMap.Point(116.4085,39.917979), 13);  
+    map.enableScrollWheelZoom();  
+    var marker=new BMap.Marker(new BMap.Point(116.4085,39.917979));  
+    map.addOverlay(marker);  
+    var licontent="<b>天安门</b><br>";  
+        licontent+="<span><strong>地址：</strong>北京市东城区天安门东劳动人民文化宫东南角</span><br>";  
+        licontent+="<span><strong>电话：</strong>(010)6524-6868</span><br>";  
+        licontent+="<span class=\"input\"><strong></strong><input class=\"outset\" type=\"text\" name=\"origin\" value=\"北京站\"/><input class=\"outset-but\" type=\"button\" value=\"公交\" onclick=\"gotobaidu(1)\" /><input class=\"outset-but\" type=\"button\" value=\"驾车\"  onclick=\"gotobaidu(2)\"/><a class=\"gotob\" href=\"url=\"http://api.map.baidu.com/direction?destination=latlng:"+marker.getPosition().lat+","+marker.getPosition().lng+"|name:天安门"+"®ion=北京"+"&output=html\" target=\"_blank\"></a></span>";
+ 
+    var hiddeninput="<input type=\"hidden\" value=\""+'北京'+"\" name=\"region\" /><input type=\"hidden\" value=\"html\" name=\"output\" /><input type=\"hidden\" value=\"driving\" name=\"mode\" /><input type=\"hidden\" value=\"latlng:"+marker.getPosition().lat+","+marker.getPosition().lng+"|name:天安门"+"\" name=\"destination\" />";
+ 
+    var content1 ="<form id=\"gotobaiduform\" action=\"http://api.map.baidu.com/direction\" target=\"_blank\" method=\"get\">" + licontent +hiddeninput+"</form>";
+   
+    var opts1 = { width: 300 };  
+       
+    var  infoWindow = new BMap.InfoWindow(content1, opts1);  
+    marker.openInfoWindow(infoWindow);  
+    marker.addEventListener('click',function(){
+        marker.openInfoWindow(infoWindow);
+    });  
+     
+    function gotobaidu(type)  
+    {  
+        if($.trim($("input[name=origin]").val())=="")  
+        {  
+            alert("请输入起点！");  
+            return;  
+        }else{  
+            if(type==1)  
+            {  
+                $("input[name=mode]").val("transit");  
+                $("#gotobaiduform")[0].submit();  
+            }else if(type==2)  
+            {      
+                $("input[name=mode]").val("driving");          
+                $("#gotobaiduform")[0].submit();  
+            }  
+        }  
+    }    
+</script>
+<script type="text/javascript">
+    $(function(){
+        $('.new-dream-weixin a').hover(function(){
+           $('.new-dream-weixin img').show();
+          },function(){
+            $('.new-dream-weixin img').hide();
+        });
+    })
+</script>
+<% end %>

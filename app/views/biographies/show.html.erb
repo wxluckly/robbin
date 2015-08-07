@@ -1,0 +1,14 @@
+<div class="wrap">
+  <!-- header -->
+  <%= render "header" %>
+  
+  <!-- main-content -->
+  <div class="main-content clearfix">
+    <div class="info-left-bar">
+      <%= image_tag "limengqiao.jpg" %>
+    </div>
+    <div class="info-right-bar">
+      <%= raw Biography.first.content %>
+    </div>
+  </div>
+</div>
