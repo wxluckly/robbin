@@ -8,7 +8,7 @@
       <%= image_tag "limengqiao.jpg" %>
     </div>
     <div class="info-right-bar">
-      <%= raw Biography.first.content %>
+      <%= raw Biography.first.try(:content) %>
     </div>
   </div>
 </div>
