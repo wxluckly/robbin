@@ -21,13 +21,13 @@ worker_processes ENV['RAILS_ENV'] || ENV['RACK_ENV'] || 'production' == "product
 
 # Help ensure your application will always spawn in the symlinked
 # "current" directory that Capistrano sets up.
-app = "/www/truedream" # available in 0.94.0+
+app = "/www/robbin" # available in 0.94.0+
 working_directory app
 
 # listen on both a Unix domain socket and a TCP port,
 # we use a shorter backlog for quicker failover when busy
 listen "#{app}/tmp/sockets/unicorn.sock", :backlog => 1024
-listen '127.0.0.1:4002', tcp_nopush: false, tcp_nodelay: true
+listen '127.0.0.1:3002', tcp_nopush: false, tcp_nodelay: true
 
 # nuke workers after 30 seconds instead of 60 seconds (the default)
 timeout 180
