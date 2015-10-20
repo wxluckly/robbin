@@ -7,7 +7,7 @@
       <!-- <li <% if current_page?('/') %>class="active"<% end %>><%= link_to "<span>首页</span><em>Home</em>".html_safe, "/" %></li> -->
       <li <% if current_page?(controller: 'videos') %>class="active"<% end %>><%= link_to "<span>视频</span><em>Video</em>".html_safe, videos_path %></li>
       <li <% if current_page?(controller: 'photos') %>class="active"<% end %>><%= link_to "<span>图片</span><em>Picture</em>".html_safe, photos_path %></li>
-      <!-- <li <% if current_page?(controller: 'news') %>class="active"<% end %>><%= link_to "<span>新梦想新闻</span><em>TD News</em>".html_safe, news_index_path %></li> -->
+      <li <% if current_page?(controller: 'news') %>class="active"<% end %>><%= link_to "<span>新闻</span><em>News</em>".html_safe, news_index_path %></li>
       <li <% if current_page?(controller: 'biographies', action: 'show') %>class="active"<% end %>><%= link_to "<span>关于</span><em>About</em>".html_safe, biography_path %></li>
       <!-- <li <% if current_page?(controller: 'contacts', action: 'show') %>class="active"<% end %>><%= link_to "<span>联系我们</span><em>Contact Us</em>".html_safe, contact_path %></li> -->
     </ul>
