@@ -1,6 +1,6 @@
 class Admin::BiographiesController < Admin::BaseController
   def edit
-    @biography = Biography.first
+    @biography = Biography.first || Biography.create
   end
 
   def update
