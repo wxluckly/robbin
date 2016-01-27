@@ -9,6 +9,7 @@
       <% next if index % 3 != 0 %>
       <p><%= link_to image_tag(web.cover_url(:on_use)), web.url, target: '_blank' %></p>
       <h3><%= link_to web.title, web.url, target: '_blank' %></h3>
+      <h4></h4>
       <% end %>
     </div>
     <div class="center-column">
@@ -16,6 +17,7 @@
       <% next if index % 3 != 1 %>
       <p><%= link_to image_tag(web.cover_url(:on_use)), web.url, target: '_blank' %></p>
       <h3><%= link_to web.title, web.url, target: '_blank' %></h3>
+      <h4></h4>
       <% end %>
     </div>
     <div class="right-column">
@@ -23,6 +25,7 @@
       <% next if index % 3 != 2 %>
       <p><%= link_to image_tag(web.cover_url(:on_use)), web.url, target: '_blank' %></p>
       <h3><%= link_to web.title || "&nbsp", web.url, target: '_blank' %></h3>
+      <h4></h4>
       <% end %>
     </div>
     <%= will_paginate @webs, previous_label: '上一页', next_label: '下一页' %>
