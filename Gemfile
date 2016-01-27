@@ -2,10 +2,10 @@ source 'https://ruby.taobao.org'
 
 # ruby '2.1'
 
-gem 'rails', '4.2.0'
+gem 'rails', '4.2.5'
 
 # 数据库
-gem 'mysql2', '0.3.20'
+gem 'mysql2', '0.4.2'
 
 # 资源
 gem 'sass-rails', '4.0.3'
