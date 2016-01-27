@@ -5,7 +5,7 @@ source 'https://ruby.taobao.org'
 gem 'rails', '4.2.0'
 
 # 数据库
-gem 'mysql2', '0.3.16'
+gem 'mysql2', '0.3.20'
 
 # 资源
 gem 'sass-rails', '4.0.3'
