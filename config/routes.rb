@@ -7,17 +7,19 @@ Rails.application.routes.draw do
   resources :photos
   resources :videos
   resources :news
+  resources :webs
 
   namespace :ajax do
     get 'add_star'
   end
 
-  namespace :admin do 
+  namespace :admin do
     root 'welcome#index'
     resource :biography
     resources :photos
     resources :videos
     resources :news
+    resources :webs
   end
 
 end

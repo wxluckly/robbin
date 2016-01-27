@@ -15,8 +15,11 @@
         <a class="brand" href="/admin">Miss Robin 后台管理</a>
         <div class="nav-collapse collapse">
           <ul class="nav">
-            <li <% if current_page?(controller: 'videos') %>class="active"<% end %>>
+<!--             <li <% if current_page?(controller: 'videos') %>class="active"<% end %>>
               <%= link_to "视频管理", admin_videos_path %>
+            </li> -->
+            <li <% if current_page?(controller: 'webs') %>class="active"<% end %>>
+              <%= link_to "网站管理", admin_webs_path %>
             </li>
             <li <% if current_page?(controller: 'photos') %>class="active"<% end %>>
               <%= link_to "图片管理", admin_photos_path %>
