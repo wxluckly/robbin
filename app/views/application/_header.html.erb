@@ -8,7 +8,7 @@
       <li <% if current_page?(controller: 'webs') %>class="active"<% end %>><%= link_to "<span>网站</span><em>Web</em>".html_safe, webs_path %></li>
       <li <% if current_page?(controller: 'photos') %>class="active"<% end %>><%= link_to "<span>图片</span><em>Picture</em>".html_safe, photos_path %></li>
       <li <% if current_page?(controller: 'news') %>class="active"<% end %>><%= link_to "<span>文案</span><em>Copywriter</em>".html_safe, news_index_path %></li>
-      <li <% if current_page?(biography_path) %>class="active"<% end %>><%= link_to "<span>简历</span><em>CV</em>".html_safe, biography_path %></li>
+      <!-- <li <% if current_page?(biography_path) %>class="active"<% end %>><%= link_to "<span>简历</span><em>CV</em>".html_safe, biography_path %></li> -->
       <!-- <li <% if current_page?(controller: 'contacts', action: 'show') %>class="active"<% end %>><%= link_to "<span>联系我们</span><em>Contact Us</em>".html_safe, contact_path %></li> -->
     </ul>
   </div>
