@@ -41,9 +41,11 @@ gem 'unicorn', '4.8.3'
 
 group :development do
   gem 'spring', '1.1.3'
-  gem 'capistrano', '3.2.1'
+  gem 'capistrano', '3.4.0'
   gem 'capistrano-bundler', '1.1.2'
   gem 'capistrano-rails', '1.1.1'
+  gem 'capistrano-rvm', '0.1.2'
+  gem 'capistrano-rails-console', '~> 1.0.2'
   gem 'binding_of_caller', '0.7.2'
   gem 'better_errors', '1.1.0'
 end
