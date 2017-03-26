@@ -38,6 +38,7 @@ gem 'rails_kindeditor', '0.4.5'
 
 # Use unicorn as the app server
 gem 'unicorn', '4.8.3'
+gem 'puma', '3.6.0'
 
 group :development do
   gem 'spring', '1.1.3'
