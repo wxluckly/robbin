@@ -18,13 +18,11 @@
 </div>
 <% content_for :js do %>
 <%= javascript_include_tag 'lightbox' %>
+<script>
+</script>
 <script type="text/javascript">
 	$(function(){
 		$(".image-set > a:nth-child(3n)").css({"margin-right":0});
 	})
-
-  lightbox.option({
-    'fitImagesInViewport': false
-  })
 </script>
 <% end %>

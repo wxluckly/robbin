@@ -14,7 +14,7 @@
   var LightboxOptions = (function() {
     function LightboxOptions() {
       this.fadeDuration                = 500;
-      this.fitImagesInViewport         = true;
+      this.fitImagesInViewport         = false;
       this.resizeDuration              = 700;
       this.positionFromTop             = 50;
       this.showImageNumberLabel        = true;
