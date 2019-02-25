@@ -1,6 +1,9 @@
-source 'https://ruby.taobao.org'
+# source 'https://rubygems.org'
+# source 'https://ruby.taobao.org'
+source 'https://gems.ruby-china.com'
 
-# ruby '2.1'
+# ruby '2.3'
+#ruby=2.3
 
 gem 'rails', '4.2.5'
 
