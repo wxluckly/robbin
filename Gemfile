@@ -39,6 +39,9 @@ gem 'carrierwave', '0.10.0'
 # 富文本编辑器
 gem 'rails_kindeditor', '0.4.5'
 
+# 系统监控
+gem 'newrelic_rpm'
+
 # Use unicorn as the app server
 gem 'unicorn', '4.8.3'
 gem 'puma', '3.6.0'
