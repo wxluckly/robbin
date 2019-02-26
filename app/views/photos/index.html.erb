@@ -9,7 +9,8 @@
 			<% @photos.each do |photo| %>
 			<a class="example-image-link" href="<%= image_url photo.photo_url(:big) %>" data-lightbox="example-set" data-title="<%= "#{photo.title}<em>#{photo.etitle}</em>" %>">
 			<!-- <a class="example-image-link" href="<%= image_url photo.photo_url(:big) %>" target="_blank"> -->
-				<%= image_tag photo.cover_url(:on_use) || photo.photo_url(:on_use) %>
+				<%#= image_tag photo.cover_url(:on_use) || photo.photo_url(:on_use) %>
+				<%= image_tag photo.photo_url(:on_use) %>
 			</a>
 			<% end %>
 		</div>
